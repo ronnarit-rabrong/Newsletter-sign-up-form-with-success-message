@@ -1,0 +1,366 @@
+@font-face{
+	src: url("./assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 100 900;
+}
+
+:root{
+
+	/* For background */
+	--clr-primary: hsl(235, 18%, 26%);
+	--clr-secondary: hsl(0, 0%, 100%);
+
+	/*  For Typography   */
+	--clr-neutral-800: hsl(234, 29%, 26%);
+	--clr-neutral-50: hsl(0, 0%, 58%);
+
+	/* For Highlight*/
+	--clr-accent: hsl(4, 100%, 67%);
+	--clr-accent-gradient:linear-gradient(to right, hsl(15, 100%, 61%), hsl(346, 100%, 66%));
+}
+
+/*
+
+	reset style
+
+*/
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+body,
+figure{
+	margin: 0;
+}
+
+img{
+	width: 100%;
+	display: block;
+}
+
+body{
+	background-color: var(--clr-secondary);
+	color: var(--clr-neutral-800);
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0;
+}
+
+.main-site{
+	position: relative;
+}
+
+/* ######################################
+
+
+					register
+
+
+###################################### */
+
+.register.hidden{
+	display: none;
+}
+
+.register{
+	background-color: var(--clr-secondary);
+}
+
+/*
+
+	register-media
+
+*/
+
+.register-media__caption{
+	margin: calc(-1rem * 1 / 16);
+	width: calc(1rem * 1 / 16);
+	height: calc(1rem * 1 / 16);
+	clip: rect(0 0 0 0);
+	position: absolute;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 0;
+	border: 0;
+}
+
+/*
+
+	.register-content
+
+*/
+
+.register-content{
+	padding: 2.5rem 1.5rem 2.5rem 1.5rem;
+}
+
+.register-content__title{
+	font-size: clamp(2.5rem, 0.5rem + 5.3333vw, 3.5rem);
+	font-weight: 700;
+	line-height: 1;
+}
+
+.register-content__info{
+	margin: 1.5rem 0 0 0;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+/*
+
+	register-reward
+
+*/
+
+.register-reward{
+	margin:1.5rem 0 0 0;
+	padding-inline-start: 1.5rem;
+}
+
+.register-reward__item{
+	padding-inline-start: 1.5rem;
+}
+
+.register-reward__item::marker{
+	content: url("./assets/images/icon-list.svg");
+}
+
+.register-reward__item:nth-child(n + 2){
+	margin-block-start: calc(1rem * 8 / 16);
+}
+
+/*
+
+	register form
+
+*/
+
+/* register form normal */
+
+.register-form{
+	display: grid;
+	grid-template-columns: 1fr auto;
+	margin: 2.5rem 0 0 0;
+}
+
+
+.register-form__label{
+	font-size: calc(1rem * 12 /16);
+	font-weight: 700;
+}
+
+.register-form__errorMessage{
+	display: none;
+}
+
+.register-form__email,
+.register-form__submit{
+	grid-column: 1 / -1;
+}
+
+.register-form__email{
+	margin-block-start: calc(1rem * 8 /16);
+	border: calc(1rem * 2 / 16) solid var(--clr-neutral-50);
+	min-height: 3.5rem;
+	padding: 1rem 1.5rem;
+	font-size: 1rem;
+	border-radius: calc(1rem * 8 / 16);
+}
+
+.register-form__email:focus-visible{
+	outline: calc(1rem * 3 / 16) solid var(--clr-neutral-50);
+	outline-offset: calc(1rem * 1 / 16);
+}
+
+.register-form__submit{
+	background-color: var(--clr-neutral-800);
+	color: var(--clr-secondary);
+	margin-block-start: 1.5rem;
+	min-height: 3.5rem;
+	border: none;
+	padding: 1rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 700;
+	border-radius: calc(1rem * 8 / 16);
+}
+
+.register-form__submit:hover,
+.register-form__submit:focus-visible{
+	cursor: pointer;
+	background: var(--clr-accent-gradient);
+}
+
+.register-form__submit:focus-visible{
+	outline: calc(1rem * 3 / 16) solid var(--clr-accent);
+	outline-offset: calc(1rem * 1 / 16);
+}
+
+/* register form error */
+
+.register-form.error .register-form__errorMessage{
+	display: inline;
+	font-size: calc(1rem * 12 /16);
+	font-weight: 700;
+	color: var(--clr-accent);
+}
+
+.register-form.error .register-form__email{
+	margin-block-start: calc(1rem * 8 /16);
+	border: calc(1rem * 1 / 16) solid var(--clr-accent);
+	background-color: hsl(from var(--clr-accent) h s l / .15);
+	min-height: 3.5rem;
+	padding: 1rem 1.5rem;
+	font-size: 1rem;
+	border-radius: calc(1rem * 8 / 16);
+}
+
+.register-form.error .register-form__email::placeholder{
+	color: var(--clr-accent);
+}
+
+@media (width > 38rem){
+	body{
+		background-color: var(--clr-primary);
+	}
+
+	.main-site{
+		padding: 0 2.5rem;
+		min-height: 100svh;
+		display: grid;
+		place-items: center;
+	}
+
+	.register{
+		display: grid;
+		gap: 2.5rem;
+		width: min(100%, 38rem);
+		border-radius: 2em;
+		margin-inline: auto;
+		padding: 2.5rem 2.5rem;
+	}
+
+	.register-media__img{
+		max-height: 22.375rem;
+	}
+
+	.register-content{
+		padding: 0 0 0 0;
+	}
+}
+
+@media (width > 58rem){
+	.register{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 4rem;
+		width: min(100%, 56.5rem);
+		padding: 1.75rem 2rem 1.75rem 2rem;
+	}
+
+	.register-media{
+		grid-area: 1 / 2 / 2 / 3;
+	}
+
+	.register-media__img{
+		max-height: 37.0625rem;
+	}
+
+	.register-content{
+		grid-area: 1 / 1 / 2 / 2;
+	}
+
+}
+
+
+/* ######################################
+
+
+					message
+
+
+###################################### */
+
+.message.hidden{
+	display: none;
+}
+
+.message{
+	background-color: var(--clr-secondary);
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	padding: 1.5rem;
+}
+
+.message-detail{
+	display: grid;
+	gap: 2rem;
+}
+
+.message-detail__img{
+	width: 4rem;
+	aspect-ratio: 1 / 1;
+}
+
+.message-detail__title{
+	font-size: clamp(2.5rem, 0.4798rem + 5.3872vw, 3.5rem);
+	font-weight: 700;
+	line-height: 1;
+}
+
+.message-detail__info{
+	font-size: 1rem;
+}
+
+.message-detail__show-email{
+	font-weight: 700;
+}
+
+.message__btn{
+	align-self: end;
+	background-color: var(--clr-neutral-800);
+	color: var(--clr-secondary);
+	margin-block-start: 1.5rem;
+	min-height: 3.5rem;
+	border: none;
+	padding: 1rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 700;
+	border-radius: calc(1rem * 8 / 16);
+}
+
+.message__btn:hover,
+.message__btn:focus-visible{
+	cursor: pointer;
+	background: var(--clr-accent-gradient);
+}
+
+.message__btn:focus-visible{
+	outline: calc(1rem * 3 / 16) solid var(--clr-accent);
+	outline-offset: calc(1rem * 1 / 16);
+}
+
+.message__show-email{
+	font-weight: 700;
+}
+
+@media (width > 38rem){
+	.message{
+		border-radius: 2em;
+		padding: 4rem;
+		width: min(100%, 32.5rem);
+		grid-template-rows: auto;
+		gap:1.5rem;
+	}
+}
