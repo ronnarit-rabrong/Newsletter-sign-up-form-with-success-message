@@ -13,10 +13,11 @@ class Register{
 			return el;
 		}
 
+		const root = registerEl;
 		this.registerEl = registerEl;
-		this.form = getRequired(registerEl, '#form');
-		this.formEmail = getRequired(registerEl, '#email')
-		this.formErrorMessage =getRequired(registerEl, '#errorMessage')
+		this.form = getRequired(root, '[data-register-form]');
+		this.formEmail = getRequired(root, '[data-register-email]')
+		this.formErrorMessage =getRequired(root, '[data-register-error]')
 	}
 
 	show(){
@@ -75,9 +76,10 @@ class Message{
 			return el;
 		}
 
+		const root = messageEl;
 		this.messageEl = messageEl;
-		this.btnHidden = getRequired(messageEl, '#message-btn-hidden');
-		this.showEmailEl =getRequired(messageEl, '#message__show-email');
+		this.btnHidden = getRequired(root, '[data-message-btn-hiedden]');
+		this.showEmailEl =getRequired(root, '[data-message-show-email]');
 	}
 
 	show(){

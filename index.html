@@ -36,10 +36,10 @@
 				</ul>
 				
 				<!--	register form -->
-				<form class="register-form" id="form">
+				<form class="register-form" id="form" data-register-form>
 					<label class="register-form__label" for="email">Email address</label>
-					<span class="register-form__errorMessage" id="errorMessage"></span>
-					<input class="register-form__email" type="email" name="email" id="email" placeholder="email@company.com">
+					<span class="register-form__errorMessage" data-register-error></span>
+					<input class="register-form__email" type="email" name="email" id="email" placeholder="email@company.com" data-register-email>
 					<input class="register-form__submit" type="submit" id="submit" value="Subscribe to monthly newsletter">
 				</form>
 			</div>
@@ -52,9 +52,9 @@
 			<div class="message-detail">
 				<img class="message-detail__img" src="./assets/images/icon-success.svg" alt="Thanks for subscribing">
 				<h2 class="message-detail__title">Thanks for subscribing!</h2>
-				<p class="message-detail__info">A confirmation email has been sent to <span class="message__show-email" id="message__show-email"></span>. Please open it and click the button inside to confirm your subscription.</p>
+				<p class="message-detail__info">A confirmation email has been sent to <span class="message__show-email" data-message-show-email></span>. Please open it and click the button inside to confirm your subscription.</p>
 			</div>
-			<button class="message__btn" id="message-btn-hidden" type="button"> Dismiss message</button>
+			<button class="message__btn" type="button" data-message-btn-hiedden> Dismiss message</button>
 		</section>
 	</main>
   <script src="./script.js"></script>
