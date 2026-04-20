@@ -1,5 +1,9 @@
 class Register{
 	constructor(registerEl) {
+		if(!registerEl){
+			throw new Error('Register component requires an element with id="register".');
+		}
+
 		this.registerEl = registerEl;
 		this.form = registerEl.querySelector('#form');
 		this.formEmail = registerEl.querySelector('#email');
@@ -17,7 +21,7 @@ class Register{
 	resetForm(){
 		this.form.classList.remove('error');
 		this.formEmail.value = '';
-		this.formErrorMessage.value = '';
+		this.formErrorMessage.textContent = '';
 	}
 
 	#isEmpty(input){
@@ -49,6 +53,10 @@ class Register{
 
 class Message{
 	constructor(messageEl){
+		if (!messageEl) {
+			throw new Error('Message component: messageEl is required. Expected element with id "#message".');
+		}
+
 		this.messageEl = messageEl;
 		this.btnHidden = messageEl.querySelector('#message-btn-hidden');
 		this.showEmailEl = messageEl.querySelector('#message__show-email')
