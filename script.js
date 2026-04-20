@@ -24,7 +24,7 @@ class Register{
 		this.registerEl.classList.remove('hidden');
 	}
 
-	hidden(){
+	hide(){
 		this.registerEl.classList.add('hidden');
 	}
 
@@ -86,12 +86,12 @@ class Message{
 		this.messageEl.classList.remove('hidden');
 	}
 
-	showEmail(email){
-		this.showEmailEl.textContent = email;
+	hied(){
+		this.messageEl.classList.add('hidden');
 	}
 
-	hidden(){
-		this.messageEl.classList.add('hidden');
+	showEmail(email){
+		this.showEmailEl.textContent = email;
 	}
 }
 
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			// if validate email pass
 			if(validateEmail){
-				register.hidden();
+				register.hide();
 				message.show();
 				message.showEmail(register.formEmail.value);
 				register.resetForm();
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 
 		message.btnHidden.addEventListener('click', () => {
-			message.hidden();
+			message.hied();
 			register.show();
 		});
 	}
