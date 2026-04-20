@@ -4,10 +4,19 @@ class Register{
 			throw new Error('Register component requires an element with id="register".');
 		}
 
+		const getRequired = (parent, selector) => {
+			const el = parent.querySelector(selector);
+			if(!el){
+				throw new Error(`Register: required element "${selector}" not found inside register element.`);
+			}
+
+			return el;
+		}
+
 		this.registerEl = registerEl;
-		this.form = registerEl.querySelector('#form');
-		this.formEmail = registerEl.querySelector('#email');
-		this.formErrorMessage = registerEl.querySelector('#errorMessage');
+		this.form = getRequired(registerEl, '#form');
+		this.formEmail = getRequired(registerEl, '#email')
+		this.formErrorMessage =getRequired(registerEl, '#errorMessage')
 	}
 
 	show(){
@@ -57,9 +66,18 @@ class Message{
 			throw new Error('Message component: messageEl is required. Expected element with id "#message".');
 		}
 
+		const getRequired = (parent, selector) => {
+			const el = parent.querySelector(selector);
+			if(!el){
+				throw new Error(`Message: required element "${selector}" not found inside message element.`);
+			}
+
+			return el;
+		}
+
 		this.messageEl = messageEl;
-		this.btnHidden = messageEl.querySelector('#message-btn-hidden');
-		this.showEmailEl = messageEl.querySelector('#message__show-email')
+		this.btnHidden = getRequired(messageEl, '#message-btn-hidden');
+		this.showEmailEl =getRequired(messageEl, '#message__show-email');
 	}
 
 	show(){
