@@ -1,42 +1,43 @@
 class Register{
 	constructor(registerEl) {
-		this.register = registerEl;
+		this.registerEl = registerEl;
 		this.form = registerEl.querySelector('#form');
 		this.formEmail = registerEl.querySelector('#email');
 		this.formErrorMessage = registerEl.querySelector('#errorMessage');
 	}
 
 	show(){
-		this.register.classList.remove('hidden');
+		this.registerEl.classList.remove('hidden');
 	}
 
 	hidden(){
-		this.register.classList.add('hidden');
+		this.registerEl.classList.add('hidden');
 	}
 
 	resetForm(){
 		this.form.classList.remove('error');
 		this.formEmail.value = '';
+		this.formErrorMessage.value = '';
 	}
 
-	isEmpty(input){
+	#isEmpty(input){
 		return input.trim().length === 0;
 	}
 
-	isNotEmail(email){
+	#isNotEmail(email){
 		const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		return !regex.test(email);
 	}
 
 	validateEmail (){
 		const email = this.formEmail.value;
-		if(this.isEmpty(email)){
+		if(this.#isEmpty(email)){
 			this.form.classList.add('error');
 			this.formErrorMessage.textContent = 'Valid email required'
 			return false;
 		}
 
-		if(this.isNotEmail(email)){
+		if(this.#isNotEmail(email)){
 			this.form.classList.add('error');
 			this.formErrorMessage.textContent = 'Is not a valid email'
 			return false;
@@ -66,26 +67,31 @@ class Message{
 	}
 }
 
-const message = new Message(document.querySelector('#message'));
-const register = new Register(document.querySelector("#register"));
+document.addEventListener('DOMContentLoaded', () => {
+	const register = new Register(document.querySelector("#register"));
+	const message = new Message(document.querySelector('#message'));
 
-register.form.addEventListener('submit', (e) => {
-	e.preventDefault();
-	const validateEmail = register.validateEmail();
+	if(register.registerEl && message.messageEl){
+		register.form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const validateEmail = register.validateEmail();
 
-	// if validate email pass
-	if(validateEmail){
-		register.hidden();
-		message.show();
-		message.showEmail(register.formEmail.value);
-		register.resetForm();
+			// if validate email pass
+			if(validateEmail){
+				register.hidden();
+				message.show();
+				message.showEmail(register.formEmail.value);
+				register.resetForm();
+			}
+		});
+
+		message.btnHidden.addEventListener('click', () => {
+			message.hidden();
+			register.show();
+		});
 	}
-});
+})
 
-message.btnHidden.addEventListener('click', () => {
-	message.hidden();
-	register.show();
-});
 
 
 

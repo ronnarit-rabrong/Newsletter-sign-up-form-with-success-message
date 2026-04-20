@@ -1,1 +1,9 @@
-.idea
+# Ignore the entire IntelliJ/WebStorm settings folder
+.idea/
+
+# OR: If you want to share some settings (like run configs), 
+# ignore only specific user-related files:
+#.idea/workspace.xml
+#.idea/usage.statistics.xml
+#.idea/dictionaries/
+#.idea/shelf/
